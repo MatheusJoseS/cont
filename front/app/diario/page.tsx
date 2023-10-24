@@ -4,7 +4,7 @@ import Navbar from "../shaed/constants/navbar";
 import Navbarvol from "../shaed/constants/navbarvol";
 import api from "../shaed/utils/my-axios";
 
-export default function diarioPage() {
+export default function DiarioPage() {
   const [from, setFrom] = React.useState<{ id_user: string; title: string; description: string; question1: string; question2: string; question3: string; question4: string; }>({ id_user: '', title: '', description: '', question1: '', question2: '', question3: '', question4: '' })
   const [loading, setLoading] = React.useState<boolean>(false)
  

@@ -12,9 +12,8 @@ interface Diario {
   description:string;
   updated_at: string;
 }
-export default function diarioPage({ params }: { params: { diarioId: string } }) {
+export default function DiarioIdPage({ params }: { params: { diarioId: string } }) {
   const [diario, setDiario] = React.useState<Diario>({  title: '', description: '', question1: '', question2: '', question3: '', updated_at: '' })
-  const [loading, setLoading] = React.useState<boolean>(false)
   
   const token = localStorage.getItem('token');
   useEffect(() => {
@@ -22,12 +21,8 @@ export default function diarioPage({ params }: { params: { diarioId: string } })
   }, []);
   const info = async () => {
    const response = await api.get('/diary/findDiary/'+ params.diarioId)
-   console.log(response.data);
    setDiario (response.data)
    
-  }
-  const diarioid = () => {
-    const diario = api.get('/findDiary')
   }
   const getData = (e: any) => {
     const { name, value } = e.target
@@ -41,7 +36,6 @@ export default function diarioPage({ params }: { params: { diarioId: string } })
     question3: diario.question3,
   }
   const atualizar = async (e: any) => {
-    setLoading(true);
     e.preventDefault()
     await api.put('/diary/updateDiary/'+ params.diarioId, dataFrom);
     location.href='http://localhost:3000/meudiario'
