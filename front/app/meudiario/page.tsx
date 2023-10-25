@@ -15,7 +15,7 @@ export default function HomePage() {
   const router = useRouter();
   useEffect(() => {
     info();
-  }, []);
+  },[]);
   const info = async () => {
     try {
       const response = await api.get('/diary/listDiaryByUserId');

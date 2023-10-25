@@ -3,13 +3,13 @@ import api from "../utils/my-axios";
 
 
 
+interface Usuario {
+  name: 'matheus';
+}
 export default function Navbar() {
   const [cor, setCor] = useState("#717EC7");
   const [isOpen, setIsOpen] = useState(false);
   const [show, setShow] = useState<Usuario | null>(null); // Inicialize como null
-  interface Usuario {
-    nome: 'matheus';
-  }
   useEffect(() => {
     info();
   }, []);
@@ -17,9 +17,7 @@ export default function Navbar() {
   const info = async () => {
     try {
       const response = await api.get('/users/pegaPorId');
-      const data = response.data;
-      console.log(data);
-
+      const data = response.data.res;
       if (data) {
         setShow(data);
       } else {
@@ -28,7 +26,7 @@ export default function Navbar() {
     } catch (error) {
       console.error("Ocorreu um erro ao buscar os dados: " + error);
     }    
-    console.log(show?.nome);
+  
     
   }
 
@@ -40,8 +38,8 @@ export default function Navbar() {
         <a tabIndex={1} href="http://localhost:3000/">
           <img tabIndex={1} className="w-20 mt-2 ml-2" src="/imagens/logo2.png" alt="Logo do contínua (a Azul)" />
         </a>
-        <h1 tabIndex={2} className="text-white text-6xl mt-4 ml-4">
-          Olá, {show ? show.nome : 'Carregando...'}
+        <h1 tabIndex={2} className="text-white text-5xl mt-6 ml-4">
+          Olá, {show ? show.name : 'Carregando...'}
         </h1>
       </div>
       <div>
