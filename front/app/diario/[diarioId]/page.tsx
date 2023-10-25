@@ -62,13 +62,13 @@ export default function DiarioIdPage({ params }: { params: { diarioId: string } 
             <button onClick={deletar} style={{color: '#9BDA9E'}} className="bg-white hover:bg-green-200 font-bold py-1 px-2 text-lg rounded-2xl mr-20 relative -top-3">Deletar</button>
           </div>
         </header>
-        <form>
-          <div className="text-center">
-            <label htmlFor='title' className="text-center text-3xl text-white">Titulo</label> <br />
-            <input className="border-b-2 w-1/2 text-gray-900 shadow-sm " type="text" value={diario?.title} style={{ background: '#9BDA9E' }} name="title" id="title" onChange={getData} required />
+        <form className="text-center">
+          <div>
+            <label htmlFor='title' className="text-3xl text-white">Titulo</label> <br />
+            <input className="border-b-2 w-1/2 text-white" type="text" value={diario?.title} style={{ background: '#9BDA9E' }} name="title" id="title" onChange={getData} required />
           </div>
-          <label htmlFor="description">descrição</label>
-          <textarea name="description" value={diario?.description} id="description" onChange={getData}  rows={20}  className="block p-2.5 mt-5 w-9/12 m-auto text-sm text-gray-900 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+          <label htmlFor="description" className="text-white text-2xl w-full text-center">descrição</label>
+          <textarea name="description" value={diario?.description} id="description" onChange={getData}  rows={20}  className="block p-2.5 mt-3 w-9/12 m-auto text-sm text-gray-900 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
 
           <label htmlFor="question1" className="block mb-2 mt-2 ml-48 text-sm font-medium text-gray-900 dark:text-white">Quais sentimentos emergiram enquanto você anotava no diário?</label>
           <textarea name="question1" id="question1"  value={diario?.question1} onChange={getData} rows={1} className="block p-2.5 w-9/12 m-auto text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Escreva aqui"></textarea>
