@@ -4,6 +4,7 @@ import Navbarvol from "../shaed/constants/navbarvol";
 import api from "../shaed/utils/my-axios";
 import { log } from "console";
 import { useRouter } from "@/node_modules/next/navigation";
+import { CheckPrimeOptions } from "crypto";
 
 interface Diarios {
   title: string;
@@ -12,10 +13,15 @@ interface Diarios {
 }
 export default function HomePage() {
   const [show, setShow] = useState<Diarios[]>([]);
+  const [favo, setFavo] = useState<{ favorito: boolean }>({ favorito: false });
   const router = useRouter();
   useEffect(() => {
     info();
-  },[]);
+  }, []);
+  const getData = (e: any) => {
+    const { name, value } = e.target
+    setFavo({ ...favo, [name]: value })
+  }
   const info = async () => {
     try {
       const response = await api.get('/diary/listDiaryByUserId');
@@ -25,9 +31,12 @@ export default function HomePage() {
       console.error("Ocorreu um erro ao buscar os dados: " + error);
     }
   }
+  const favoritos = () => {
+    const favor = favo
+  }
   return (
     <main className="w-screen h-screen  px-48 py-10">
-      <div style={{ borderRadius: '2rem', background: '#9BDA9E' }} className="w-full h-full ">
+      <div style={{ borderRadius: '2rem', background: '#D8CADB' }} className="w-full h-full ">
         <nav className="w-full h-24 flex justify-between p-10">
           <a href="/home"><img src="/imagens/sete.png" alt="voltar" className="w-24" /></a>
           <div className="flex justify-between ">
@@ -38,12 +47,14 @@ export default function HomePage() {
         <main className="mt-20">
           {show.map(show => {
             return (
-              <div onClick={() => router.push("/diario/" + show.id)} style={{ color: '#BEBEBE' }} className="mx-5 my-5 h-16 bg-white flex justify-between text-3xl p-3">
-                <div>
-                  <label>Titulo:</label>{show.title}
-                </div>
-                <div>
-                  {show.updated_at.split('T')[0].replaceAll('-', '/')}
+              <div>
+                <div onClick={() => router.push("/diario/" + show.id)} style={{ color: '#BEBEBE' }} className="mx-5 my-5 h-16 bg-white flex justify-between text-3xl p-3">
+                  <div>
+                    <label>Titulo:</label>{show.title}
+                  </div>
+                  <div>
+                    {show.updated_at.split('T')[0].replaceAll('-', '/')}
+                  </div>
                 </div>
               </div>
             )

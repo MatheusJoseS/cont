@@ -64,18 +64,13 @@ export default function Login() {
           email: from.email_user,
           password: from.senha_user
         }
-        console.log(login);
         const reponse = await api.post("/auth/login", login)
-        console.log({ reponse });
         localStorage.setItem("token", reponse.data.token)
-        console.log("Login:ok");
         location.href = "http://localhost:3000/home"
         setLoading(false)
       } else {
         if (from.senha_user == from.senha_user_comfir) {
-          console.log(from);
           const response = await api.post("/auth/sign-up", from)
-          console.log(response);
           alert("cadastro:ok")
           setLoading(false)
         } else {
@@ -83,8 +78,7 @@ export default function Login() {
         }
       }
     } catch (err) {
-      console.log(err);
-      alert("Login:erro")
+      alert("erro no Ligin/Cadastro")
       mudarCor();
     }
   }

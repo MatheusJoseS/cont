@@ -14,7 +14,6 @@ interface Diario {
 }
 export default function DiarioIdPage({ params }: { params: { diarioId: string } }) {
   const [diario, setDiario] = React.useState<Diario>({  title: '', description: '', question1: '', question2: '', question3: '', updated_at: '' })
-  
   const token = localStorage.getItem('token');
   useEffect(() => {
     info();
@@ -22,7 +21,6 @@ export default function DiarioIdPage({ params }: { params: { diarioId: string } 
   const info = async () => {
    const response = await api.get('/diary/findDiary/'+ params.diarioId)
    setDiario (response.data)
-   
   }
   const getData = (e: any) => {
     const { name, value } = e.target
@@ -39,16 +37,11 @@ export default function DiarioIdPage({ params }: { params: { diarioId: string } 
     e.preventDefault()
     await api.put('/diary/updateDiary/'+ params.diarioId, dataFrom);
     location.href='http://localhost:3000/meudiario'
-
-
   }
   const deletar = async (e: any) => {
     const response = await api.delete('/diary/deleteDiary/'+ params.diarioId);
-    console.log(response);
     location.href='http://localhost:3000/meudiario'
   }
-  console.log(params.diarioId);
-  
   return (
     <main className="w-screen h-screen  px-48 py-10">
       <div style={{ borderRadius: '2rem', background: '#9BDA9E' }} className="w-full h-full ">

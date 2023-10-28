@@ -24,7 +24,6 @@ export default function SOSPage() {
 
       try {
         const response = await api.post('/sos/uploadFile', formData);
-        console.log(response);
         location.href='http://localhost:3000/SOSconf'
       } catch (error) {
         console.error("Error uploading image:", error);

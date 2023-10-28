@@ -80,9 +80,10 @@ export default function HomePage() {
         : null}
       <main className="flex justify-between">
         <div className="w-1/2">
-          <button onClick={sdica} style={{ background: '#D8CADB', borderRadius: '2rem', marginLeft: '10rem' }} className=" h-24 w-2/3 ml-36 mt-16 p-9 flex justify-between" tabIndex={7}><img src="/imagens/Captura de tela 2023-10-23 214953.png" alt="Imagen do Dicas" className="w-20 h-20 ml-2 -mt-7" /> <strong className="mr-80 pr-1 text-white text-3xl">Dicas</strong></button>
-          <a href="/meudiario" style={{ background: '#9BDA9E', borderRadius: '2rem', marginLeft: '10rem' }} className=" h-24 w-2/3 ml-36 mt-16 p-9 flex justify-between" tabIndex={7}><img src="/imagens/livro2.png" alt="Imagen do Dicas" className="w-24 h-20 -mt-7" /> <strong className="mr-64 pr-1 text-white text-3xl">Meu Diario</strong></a>
-          <a href="/depoimento" style={{ background: '#ACF0F4', borderRadius: '2rem', marginLeft: '10rem' }} className=" h-24 w-2/3 ml-36 mt-16 p-9 flex justify-between" tabIndex={7}><img src="/imagens/depoimento.png" alt="Imagen do Dicas" className="w-20 h-20 ml-3 -mt-7" /> <strong className="mr-60 pr-1 text-white text-3xl">Depoimento</strong></a>
+          <button onClick={sdica} style={{ background: '#9BDA9E', borderRadius: '2rem', marginLeft: '10rem' }} className=" h-24 w-2/3 ml-36 mt-16 p-9 flex justify-between" tabIndex={7}><img src="/imagens/lanpada.png" alt="Imagen do Dicas" className="w-40 h-20 -ml-7 -mt-7" /> <strong className="mr-80 pr-1 text-white text-3xl">Dicas</strong></button>
+          <a href="/meudiario" style={{ background: '#D8CADB', borderRadius: '2rem', marginLeft: '10rem' }} className=" h-24 w-2/3 ml-36 mt-16 p-9 flex justify-between" tabIndex={7}><img src="/imagens/livro.png" alt="Imagen do Dicas" className="w-24 h-20 -mt-7" /> <strong className="mr-64 pr-1 text-white text-3xl">Meu Diario</strong></a>
+          <a href="/depoimento" style={{ background: '#ACF0F4', borderRadius: '2rem', marginLeft: '10rem' }} className=" h-24 w-2/3 ml-36 mt-16 p-9 flex justify-between" tabIndex={7}><img src="/imagens/depoimento.png" alt="Imagen do Dicas" className="w-20
+          4 h-20 ml-3 -mt-7" /> <strong className="mr-60 pr-1 text-white text-3xl">Depoimento</strong></a>
           <a href="/SOSconf" style={{ background: '#EC6161', borderRadius: '2rem', marginLeft: '10rem' }} className=" h-24 w-2/3 ml-36 mt-16 p-9 flex justify-between" tabIndex={7}><img src="/imagens/engrenagem1.png" alt="Imagen do Dicas" className="w-24 h-20 -mt-7" /> <strong className="mr-60 pr-1 text-white text-3xl">Depoimento</strong></a>
         </div>
         <div className="m-auto w-1/2 flex justify-between px-36">
