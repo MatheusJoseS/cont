@@ -1,40 +1,30 @@
 'use client'
-import { log } from "console";
 import React, { useEffect, useState } from "react";
-import Navbar from "../shaed/constants/navbar";
-import Navbarvol from "../shaed/constants/navbarvol";
 import api from "../shaed/utils/my-axios";
 interface imag {
   user_url: string;
   id: string;
   user: string;
+  description:string;
 }
 export default function SOSPage() {
-  const [foto, setFoto] = React.useState<imag[]>([])
-
+  const [foto, setFoto] = React.useState<imag[]>([]);
   useEffect(() => {
     info();
   }, [])
-  const tudo = {
-    foto,
-  }
+
   const info = async () => {
     const response = await api.get('/sos/findFile')
     const data = response.data.res
     console.log(data);
     
     setFoto(data)
-    console.log(data.res.id);
+ 
   }
   const deletar = async () => {
-    const resp = await api.get('/users/pegaPorId')
-    const data = resp.data.res.id
-    const todo ={
-      data,foto
-    }
-    console.log(todo);
+    //  const response = await api.delete("/sos/deleteFile/"+)
+    // console.log(response);
     
-    const response = await api.delete("/sos/deleteFile/"+todo)
   }
   return (
     <main className="w-screen h-screen px-48 pt-10 pb-36">
@@ -50,9 +40,10 @@ export default function SOSPage() {
           <main className="mt-20">
             {foto.map(foto => {
               return (
-                <div className="bg-white">
-                  <img src={foto.user_url} alt="imagen do usuario" />
-                  <button onClick={deletar}>deletar</button>
+                <div style={{background:'rgb(232, 163, 163)'}} className="p-10 text-center">
+                  <img src={'http://localhost:38000/images/'+foto.user_url} alt="imagen do usuario" className="w-1/2 m-auto"/>
+                  <p className="text-white">{foto.description}</p>
+                  <button onClick={deletar} className='float-left'>deletar</button>
                 </div>
               )
             })}
