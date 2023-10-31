@@ -38,12 +38,12 @@ export default function SOSconfPage() {
           <a href="/SOS"><img src="/imagens/mais.png" alt="" className="w-24 h-24" /></a>
         </nav>
         <div style={{ borderRadius: '2rem', background: '#EC6161' }} className="w-full p-10">
-            <main className="mt-20 h-1/2" style={{overflow: "auto",border: "1px solid #ccc",height: '50em'}}>
+            <main className="mt-20 h-1/2" style={{overflow: "auto",border: "1px solid #ccc",height: '45em'}}>
             {foto.map(foto => {
               return (
-                <div style={{background:'rgb(232, 163, 163)'}} className="px-40 py-6 border-solid border-gray-300 border-8">
-                  <h1 className="text-white text-3xl">{foto.title}</h1>
-                  <img src={'http://localhost:38000/images/'+foto.user_url} alt="imagen do usuario" className="m-auto rounded-md border-solid border-red-700 border-2" style={{height: '30em'}}/>
+                <div style={{background:'rgb(232, 163, 163)'}} className="px-72 py-8 border-solid border-gray-300 border-8">
+                  <h1 className="text-white text-3xl pb-5"> <strong>{foto.title}</strong></h1>
+                  <img src={'http://localhost:38000/images/'+foto.user_url} alt="imagen do usuario" className="m-auto rounded-3xl border-solid border-red-700 border-2" style={{width: '50em'}}/>
                   <p className="text-white text-center break-words overflow-hidden	">{foto.description}</p>
                   <button onClick={deletar} className='float-left'>deletar</button>
                 </div>
