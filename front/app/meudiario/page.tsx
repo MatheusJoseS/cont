@@ -35,7 +35,7 @@ export default function MeuDiarioPage() {
           </div>
           <a href="/diario"><img src="/imagens/mais.png" alt="" className="w-24 h-24" /></a>
         </nav>
-        <main className="mt-20">
+        <main className="mt-20 p-5" style={{overflow: "auto",border: "1px solid #ccc",height:'45em'}}>
           {show.map(show => {
             return (
               <div>
