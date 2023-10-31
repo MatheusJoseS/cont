@@ -6,8 +6,9 @@ interface imag {
   id: string;
   user: string;
   description:string;
+  title:string;
 }
-export default function SOSPage() {
+export default function SOSconfPage() {
   const [foto, setFoto] = React.useState<imag[]>([]);
   useEffect(() => {
     info();
@@ -22,7 +23,7 @@ export default function SOSPage() {
  
   }
   const deletar = async () => {
-    //  const response = await api.delete("/sos/deleteFile/"+)
+    // const response = await api.delete("/sos/deleteFile/"+ id)
     // console.log(response);
     
   }
@@ -40,9 +41,10 @@ export default function SOSPage() {
           <main className="mt-20">
             {foto.map(foto => {
               return (
-                <div style={{background:'rgb(232, 163, 163)'}} className="p-10 text-center">
-                  <img src={'http://localhost:38000/images/'+foto.user_url} alt="imagen do usuario" className="w-1/2 m-auto"/>
-                  <p className="text-white">{foto.description}</p>
+                <div style={{background:'rgb(232, 163, 163)'}} className="px-40 py-6 border-solid border-gray-300 border-8">
+                  <h1 className="text-white text-3xl">{foto.title}</h1>
+                  <img src={'http://localhost:38000/images/'+foto.user_url} alt="imagen do usuario" className="w-full m-auto"/>
+                  <p className="text-white text-center break-words overflow-hidden	">{foto.description}</p>
                   <button onClick={deletar} className='float-left'>deletar</button>
                 </div>
               )

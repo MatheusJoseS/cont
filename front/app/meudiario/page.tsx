@@ -1,27 +1,21 @@
 'use client'
 import React, { useEffect, useState } from "react";
-import Navbarvol from "../shaed/constants/navbarvol";
 import api from "../shaed/utils/my-axios";
-import { log } from "console";
 import { useRouter } from "@/node_modules/next/navigation";
-import { CheckPrimeOptions } from "crypto";
 
 interface Diarios {
   title: string;
   updated_at: string;
   id: string;
 }
-export default function HomePage() {
+export default function MeuDiarioPage() {
   const [show, setShow] = useState<Diarios[]>([]);
   const [favo, setFavo] = useState<{ favorito: boolean }>({ favorito: false });
   const router = useRouter();
   useEffect(() => {
     info();
   }, []);
-  const getData = (e: any) => {
-    const { name, value } = e.target
-    setFavo({ ...favo, [name]: value })
-  }
+
   const info = async () => {
     try {
       const response = await api.get('/diary/listDiaryByUserId');
@@ -30,9 +24,6 @@ export default function HomePage() {
     } catch (error) {
       console.error("Ocorreu um erro ao buscar os dados: " + error);
     }
-  }
-  const favoritos = () => {
-    const favor = favo
   }
   return (
     <main className="w-screen h-screen  px-48 py-10">

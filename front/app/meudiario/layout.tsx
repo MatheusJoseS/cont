@@ -1,4 +1,4 @@
-export default function HomeLayout({ children, }: { children: React.ReactNode }) {
+export default function MeuDiarioLayout({ children, }: { children: React.ReactNode }) {
     return (
         <div>
             {children}

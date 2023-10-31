@@ -1,9 +1,8 @@
 'use client'
 import React from "react";
-import Navbar from "../shaed/constants/navbar";
 import Navbarvol from "../shaed/constants/navbarvols";
 
-export default function HomePage() {
+export default function SobrePage() {
   const [cor, setCor] = React.useState("#717EC7")
   return (
     <div style={{ backgroundColor: '#F7F4FF' }} className="w-screen h-screen">

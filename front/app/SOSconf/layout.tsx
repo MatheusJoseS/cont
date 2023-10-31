@@ -1,4 +1,4 @@
-export default function SOSLayout({ children, }: { children: React.ReactNode }) {
+export default function SOSconfLayout({ children, }: { children: React.ReactNode }) {
     return (
         <div>
             {children}

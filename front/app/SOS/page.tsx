@@ -41,11 +41,13 @@ export default function SOSPage() {
   return (
     <main className="w-screen h-screen px-48 py-10">
       <div style={{ borderRadius: '2rem', background: '#EC6161' }} className="w-full h-full">
-        <form onSubmit={Submit}>
-          Coloque uma imagem <br />
-          <input type="text" name="title" id="title" onChange={TitleChange} />
-          <input type="file" name="file" onChange={FileChange} /> <br />
-          <input type="text" name="description" id="description" onChange={DescriptionChange} />
+        <form onSubmit={Submit} className="p-10">
+          <label htmlFor="title">coloque um titulo</label> <br />
+          <input type="text" name="title" id="title" onChange={TitleChange} maxLength={20}/><br />
+          <label htmlFor="file">coloque um imagen</label> <br />
+          <input type="file" name="file" onChange={FileChange} /><br />
+          <label htmlFor="description">coloque um decrição</label> <br />
+          <input type="text" name="description" id="description" onChange={DescriptionChange} maxLength={400} /><br />
           <button className="text-white" type="submit">Enviar</button>
         </form>
       </div>

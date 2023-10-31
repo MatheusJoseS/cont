@@ -1,7 +1,5 @@
 'use client'
 import React from "react";
-import Navbar from "../shaed/constants/navbar";
-import Navbarvol from "../shaed/constants/navbarvol";
 import api from "../shaed/utils/my-axios";
 
 export default function DiarioPage() {
@@ -33,9 +31,7 @@ export default function DiarioPage() {
             <a href="/meudiario"><img src="/imagens/livro2.png" alt="" className="ml-32 pt-5 w-20 h-24" /></a>
             <h1 className="pt-11 text-2xl text-white">Meu Diario</h1>
           </div>
-
           <div className="flex justify-between mt-11 text-2xl text-white">
-          
             <button onClick={submit} style={{color: '#9BDA9E'}} className="bg-white hover:bg-green-200 font-bold py-1 px-2 text-lg rounded-2xl mr-36 relative -top-3">Salvar</button>
           </div>
         </header>

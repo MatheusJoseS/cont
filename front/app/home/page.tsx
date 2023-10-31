@@ -1,8 +1,6 @@
 'use client'
 import Navbar from "../shaed/constants/navbar";
-import React, { useEffect, useState } from 'react';
-import api from "../shaed/utils/my-axios";
-import { log } from "console";
+import React, {useState} from 'react';
 
 export default function HomePage() {
   const [dica, setDica] = useState(false)
@@ -51,7 +49,7 @@ export default function HomePage() {
     setItems(nume)
   }
   const madardicBack = () => {
-    const nume = (items + 1) % 5;
+    const nume = (items - 1) % 5;
     setItems(nume)
   }
   return (
@@ -70,7 +68,7 @@ export default function HomePage() {
               </div>
             </header>
             <div className="flex justify-between">
-            <button onClick={madardicNext}><img src="/imagens/sete.png" alt="" className="w-20" /></button>
+            <button onClick={madardicBack}><img src="/imagens/sete.png" alt="" className="w-20" /></button>
               <img style={{height:'800px',width:'800px'}} src={image[items]} alt="atividade/incentivos para ajuda" className="m-auto ml-40 -mt-36 -mb-28" />
               <button onClick={madardicNext}><img src="/imagens/Seta esquerda.png" alt="" className="w-20" /></button>
             </div>
