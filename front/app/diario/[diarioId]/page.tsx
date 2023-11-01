@@ -44,21 +44,21 @@ export default function DiarioIdPage({ params }: { params: { diarioId: string } 
   }
   return (
     <main className="w-screen h-screen  px-48 py-10">
-      <div style={{ borderRadius: '2rem', background: '#BEBEBE' }} className="w-full h-full ">
+      <div style={{ borderRadius: '2rem', background: '#D8CADB' }} className="w-full h-full ">
         <header className="flex justify-between">
           <div className="flex justify-between">
             <a href="/meudiario"><img src="/imagens/livro.png" alt="" className="ml-32 pt-5 w-20 h-24" /></a>
             <h1 className="pt-11 pl-4 text-2xl text-white">Meu Diario</h1>
           </div>
           <div className="flex justify-between mt-11 text-2xl text-white">
-            <button onClick={atualizar} style={{ color: '#BEBEBE' }} className="bg-white hover:bg-purple-200 font-bold py-1 px-2 text-lg rounded-2xl mr-20 relative -top-3">Atualizar</button>
-            <button onClick={deletar} style={{ color: '#BEBEBE' }} className="bg-white hover:bg-purple-200 font-bold py-1 px-2 text-lg rounded-2xl mr-20 relative -top-3">Deletar</button>
+            <button onClick={atualizar} style={{ color: '#D8CADB' }} className="bg-white hover:bg-purple-200 font-bold py-1 px-2 text-lg rounded-2xl mr-20 relative -top-3">Atualizar</button>
+            <button onClick={deletar} style={{ color: '#D8CADB' }} className="bg-white hover:bg-purple-200 font-bold py-1 px-2 text-lg rounded-2xl mr-20 relative -top-3">Deletar</button>
           </div>
         </header>
         <form className="">
           <div className="text-center">
             <label htmlFor='title' className="text-3xl text-white ">Titulo</label> <br />
-            <input className="border-b-2 w-1/2 text-white mb-5" type="text" value={diario?.title} style={{ background: '#BEBEBE' }} name="title" id="title" onChange={getData} required /> <br />
+            <input className="border-b-2 w-1/2 text-white mb-5" type="text" value={diario?.title} style={{ background: '#D8CADB' }} name="title" id="title" onChange={getData} required /> <br />
             <label htmlFor="description" className="text-white text-2xl w-full text-center">Descrição</label>
           </div>
           <textarea name="description" value={diario?.description} id="description" onChange={getData} rows={20} className="block p-2.5 mt-3 w-9/12 m-auto text-sm text-gray-900 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>

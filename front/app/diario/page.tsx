@@ -25,24 +25,24 @@ export default function DiarioPage() {
   }
   return (
     <main className="w-screen h-screen  px-48 py-10">
-      <div style={{ borderRadius: '2rem', background: '#BEBEBE' }} className="w-full h-full ">
+      <div style={{ borderRadius: '2rem', background: '#D8CADB' }} className="w-full h-full ">
         <header className="flex justify-between">
           <div className="flex justify-between">
             <a href="/meudiario"><img src="/imagens/livro.png" alt="" className="ml-32 pt-5 w-20 h-24" /></a>
             <h1 className="pt-11 pl-4 text-2xl text-white">Meu Diario</h1>
           </div>
           <div className="flex justify-between mt-11 text-2xl text-white">
-            <button onClick={submit} style={{color: '#BEBEBE'}} className="bg-white hover:bg-purple-200 font-bold py-1 px-2 text-lg rounded-2xl mr-36 relative -top-3">Salvar</button>
+            <button onClick={submit} style={{color: '#D8CADB'}} className="bg-white hover:bg-purple-200 font-bold py-1 px-2 text-lg rounded-2xl mr-36 relative -top-3">Salvar</button>
           </div>
         </header>
         <form>
           <div className="text-center">
-            <h1 className="text-center text-3xl text-white">Titulo:</h1>
-            <input className="border-b-2 w-1/2 text-white mb-5" type="text" style={{ background: '#BEBEBE' }} name="title" id="title" onChange={getData}/> <br />
+            <h1 className="text-center -mt-5 text-3xl text-white">Titulo:</h1>
+            <input className="border-b-2 w-1/2 text-white mb-3" type="text" style={{ background: '#D8CADB' }} name="title" id="title" onChange={getData}/> <br />
             <label htmlFor="description" className="text-white text-2xl w-full text-center">Descrição</label>
           </div>
           
-          <textarea name="description" id="description" onChange={getData}  rows={20}  className="block p-2.5 mt-5 w-9/12 m-auto text-sm text-gray-900 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+          <textarea name="description" id="description" onChange={getData}  rows={20}  className="block p-2 mt-1 w-9/12 m-auto text-sm text-gray-900 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
 
           <label htmlFor="question1" className="block mb-2 mt-2 ml-48 text-sm font-medium text-gray-900 dark:text-white">Quais sentimentos emergiram enquanto você anotava no diário?</label>
           <textarea name="question1" id="question1" onChange={getData} rows={1} className="block p-2.5 w-9/12 m-auto text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Escreva aqui"></textarea>
