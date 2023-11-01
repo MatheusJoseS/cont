@@ -12,12 +12,12 @@ interface imag {
 interface Imagen {
   imag: File | undefined;
   description: string;
-  title:string;
+  title: string;
 }
 export default function SOSconfPage() {
   const [foto, setFoto] = React.useState<imag[]>([]);
   const [ecadastro, setecadastro] = useState(false)
-  const [fotos, setFotos] = useState<Imagen>({ imag: undefined, description: '',title:'' });
+  const [fotos, setFotos] = useState<Imagen>({ imag: undefined, description: '', title: '' });
   const TitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFotos((prevFoto) => ({ ...prevFoto, title: e.target.value }));
   }
@@ -29,7 +29,7 @@ export default function SOSconfPage() {
   const DescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setFotos((prevFoto) => ({ ...prevFoto, description: e.target.value }));
   }
-  
+
 
   const Submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,9 +43,9 @@ export default function SOSconfPage() {
       try {
         const response = await api.post('/sos/uploadFile', formData);
         console.log(response);
-        
-        
-        
+
+
+
         location.href = 'http://localhost:3000/SOSconf';
       } catch (error) {
         console.error("Error uploading image:", error);
@@ -86,19 +86,33 @@ export default function SOSconfPage() {
         {ecadastro ? <button className="w-full h-20 mt-10 text-white text-3xl" style={{ background: '#ec6161' }} tabIndex={6}><strong>Adicionar</strong></button> : <button style={{ color: '#e53838' }} onClick={cadastro} className="w-full h-20 mt-10 text-white text-3xl" tabIndex={6}><strong>Adicionar</strong></button>}
       </div>
       {ecadastro ?
-          <div  className="w-full h-full">
-                        <h1 className="text-white text-5xl mt-5 text-center">Cont;nue</h1>
-        <form onSubmit={Submit} className="p-10">
-        
-          <input type="text" name="title" id="title" placeholder="Titulo:" style={{background: 'rgb(232, 163, 163)'}} onChange={TitleChange} className='placeholder:text-white text-3xl w-1/2 mx-96' maxLength={20}/><br />
-          <input type="file" name="file" onChange={FileChange} /><br />
-          <div className='w-full ml-96'>
-          <label htmlFor="description" className="text-right text-white text-3xl">Decrição</label> <br />
-          <textarea name="description" id="description" onChange={DescriptionChange} maxLength={400} rows={10} className='w-1/2'/><br />
-          </div>
-          <button className="" type="submit">Enviar</button>
-        </form>
-      </div>
+        <div className="w-full h-full">
+          <h1 className="text-white text-5xl mt-5 text-center">Cont;nue</h1>
+          <form onSubmit={Submit} className="p-10">
+            <div className="flex items-center justify-center">
+            <input type="text" name="title" id="title" placeholder="Titulo:" style={{ background: 'rgb(232, 163, 163)' }} onChange={TitleChange} className='placeholder:text-white text-3xl w-1/2 flex items-center justify-center text-white' maxLength={20} />
+            </div>
+            <div className="flex items-center justify-center w-full">
+              <label form="dropzone-file" className="flex flex-col items-center justify-center w-1/2 h-96 mt-5 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                  <svg className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                  </svg>
+                  <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Click aqui para escolher uma foto</span> ou arraste um arquivo PNG</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                </div>
+                <input id="dropzone-file" name="file" onChange={FileChange} type="file" className="hidden" />
+              </label>
+            </div>
+            <div className='ml-80 pl-8 mt-10 mb-3'>
+              <label htmlFor="description" className="text-right text-white text-3xl mt-10">Decrição</label>
+            </div>
+            <div className="flex items-center justify-center">
+            <textarea name="description" id="description" onChange={DescriptionChange} maxLength={400} rows={10} className='w-1/2' />
+            </div>
+            <button className=" text-white float-right mr-20 flex justify-between items-center p-2 rounded-xl mt-16 w-32 text-2xl h-12 " type="submit" style={{ background: '#ec6161' }}>Enviar <img src="/imagens/salvar.png" alt="" /></button>
+          </form>
+        </div>
         :
         <div className="w-full">
           <div className="text-center">
