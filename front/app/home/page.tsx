@@ -91,7 +91,6 @@ export default function HomePage() {
           <button onClick={mudarcaroNext} className="mt-80 w-20 h-20 text-white text-xl" ><img src="/imagens/seta-direita.png" alt="" className="w-10 m-auto" /></button>
         </div>
       </main>
-
     </div>
   )
 }
