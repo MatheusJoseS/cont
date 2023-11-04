@@ -1,9 +1,9 @@
 'use client'
 import { useRouter } from "@/node_modules/next/router";
 import React, { useEffect, useState } from "react";
-import Navbar from "../../shaed/constants/navbar";
-import Navbarvol from "../../shaed/constants/navbarvol";
-import api from "../../shaed/utils/my-axios";
+import Navbar from "../shaed/constants/navbar";
+import Navbarvol from "../shaed/constants/navbarvol";
+import api from "../shaed/utils/my-axios";
 interface Diario {
   title: string;
   question1: string;
@@ -52,7 +52,6 @@ export default function DiarioIdPage({ params }: { params: { diarioId: string } 
           </div>
           <div className="flex justify-between mt-11 text-2xl text-white">
             <button onClick={atualizar} style={{ color: '#D8CADB' }} className="bg-white hover:bg-purple-200 font-bold py-1 px-2 text-lg rounded-2xl mr-20 relative -top-3">Atualizar</button>
-            <button onClick={deletar} style={{ color: '#D8CADB' }} className="bg-white hover:bg-purple-200 font-bold py-1 px-2 text-lg rounded-2xl mr-20 relative -top-3">Deletar</button>
           </div>
         </header>
         <form className="">

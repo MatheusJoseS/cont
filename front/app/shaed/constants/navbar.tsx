@@ -42,9 +42,7 @@ export default function Navbar() {
   return (
     <nav style={{ background: cor }} className="w-full h-24 flex justify-between">
       <div className="flex justify-between">
-        <a tabIndex={1} href="http://localhost:3000/">
-          <img tabIndex={1} className="w-20 mt-2 ml-2" src="/imagens/logo2.png" alt="Logo do contínua (a Azul)" />
-        </a>
+          <img tabIndex={1} className="w-20 h-20 mt-2 ml-2" src="/imagens/logo2.png" alt="Logo do contínua (a Azul)" />
         <h1 tabIndex={2} className="text-white text-5xl mt-6 ml-4">
           Olá, {show ? show.name : 'Carregando...'}
         </h1>
