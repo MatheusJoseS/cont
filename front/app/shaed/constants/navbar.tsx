@@ -27,7 +27,7 @@ export default function Navbar() {
   const info = async () => {
     try {
       const response = await api.get('/users/pegaPorId');
-      const data = response.data.res;
+      const data = response.data.saveUser;
       if (data) {
         setShow(data);
       } else {

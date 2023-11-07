@@ -6,9 +6,9 @@ interface Imagen {
   description: string;
 }
 interface Depoimento {
-  state:string;
-  description:string;
-  id:string;
+  state: string;
+  description: string;
+  id: string;
 }
 export default function SOSconfPage() {
   const [imagen, setImagen] = useState(false)
@@ -16,7 +16,7 @@ export default function SOSconfPage() {
   const [adm, setAdm] = useState(false)
   const [fotos, setFotos] = useState<Imagen[]>([]);
   const [descri, setDescri] = useState<Depoimento[]>([]);
-  const [avaliador , setAvaliador] = useState<{state:string,description:string}>({state:'',description:''})
+  const [avaliador, setAvaliador] = useState<{ state: string, description: string }>({ state: '', description: '' })
   const [from, setFrom] = React.useState<{ description: string; id: string }>({ description: '', id: '' })
   const data = {
     description: from.description
@@ -24,7 +24,7 @@ export default function SOSconfPage() {
   const Submit = async (e: React.FormEvent) => {
     e.preventDefault();
     const response = await api.post('/brief/createBrief', data)
-    console.log(response);
+    location.href='/depoimento'
 
   }
   const getData = (e: any) => {
@@ -40,29 +40,34 @@ export default function SOSconfPage() {
     setImagen(novoestado)
   }
   const admVeriv = () => {
-    setPag(true)
+    setPag(!pag);
     console.log(pag);
   }
-  const Aprovado = () => {
-    const data = [
-      
-    ]
+  const Aprovado = async (id: string, state: string) => {
+    const response = await api.put('/brief/updateBriefByAdm/' + id,state)
+    location.href='/depoimento'
   }
   useEffect(() => {
-    info();
+    info(),
+      admmm();
   }, [])
 
   const info = async () => {
     const response = await api.get('/brief/listTrueBrief')
+    const data = response.data
+    setFotos(data)
+  }
+  const admmm = async () => {
     const admres = await api.get('/users/pegaPorId')
     const admAnalize = await api.get('/brief/listFalseBrief')
-    const admdata = admres.data
-    console.log(admAnalize);
-    setAdm(!!admdata && admdata.isAdmin)
-    const data = response.data
+    const admdata = admres.data.saveUser.isAdmin
+    if (admdata === true) {
+      setAdm(true)
+    } else {
+      console.log('Não Adm');
+    }
     const admava = admAnalize.data
     setDescri(admava)
-    setFotos(data)
   }
   return (
     <main style={{ background: '#75ced3' }} className="w-screen h-screen flex">
@@ -75,18 +80,18 @@ export default function SOSconfPage() {
       <div>
         {pag ?
           <div>
-             {descri.map(descri => {
-                    return (
-                      <div>
-                      <div className="flex justify-between items-center mt-5">
-                          <div className="w-11/12 h-auto bg-white p-5 rounded-lg ml-5">
-                            <p className="text-3xl">"<strong className="text-2xl">{descri.description}</strong>"</p>
-                            <button onClick={()=>Aprovado(descri?.id)}>apro</button> <button>negado</button>
-                          </div>
-                        </div>
-                      </div>
-                    )
-                  })}
+            {descri.map(descri => {
+              return (
+                <div>
+                  <div className="flex justify-between items-center mt-5">
+                    <div className="w-11/12 h-auto bg-white p-5 rounded-lg ml-5">
+                      <p className="text-3xl">"<strong className="text-2xl">{descri.description}</strong>"</p>
+                      <button onClick={() => Aprovado(descri?.id, descri?.state)}>apro</button> <button>negado</button>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
           </div> :
           <div>
             {imagen ?
