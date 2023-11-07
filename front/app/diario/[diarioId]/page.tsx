@@ -1,9 +1,6 @@
 'use client'
-import { useRouter } from "@/node_modules/next/router";
 import React, { useEffect, useState } from "react";
-import Navbar from "../shaed/constants/navbar";
-import Navbarvol from "../shaed/constants/navbarvol";
-import api from "../shaed/utils/my-axios";
+import api from "../../shaed/utils/my-axios";
 interface Diario {
   title: string;
   question1: string;

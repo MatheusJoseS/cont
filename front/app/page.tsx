@@ -13,7 +13,7 @@ interface TokenResponse {
 export default function Login() {
   const [ecadastro, setecadastro] = useState(false)
   const [loading, setLoading] = React.useState<boolean>(false)
-  const [from, setFrom] = React.useState<{ email_user: string; nome_user: string; senha_user: string; senha_user_comfir: string; tel_user: string; tel_emg_user: string; }>({ email_user: '', nome_user: '', senha_user: '', senha_user_comfir: '', tel_user: '', tel_emg_user: '' })
+  const [from, setFrom] = React.useState<{ email_user: string; nome_user: string; senha_user: string; senha_user_comfir: string;}>({ email_user: '', nome_user: '', senha_user: '', senha_user_comfir: '',})
   const [cor, setCor] = React.useState("#1E3A8A")
   const [erro, setErro] = React.useState('')
   const googleLogoUrl = "https://cdn-icons-png.flaticon.com/512/281/281764.png?w=740&t=st=1691100843~exp=1691101443~hmac=a30f55d5ff66b960de01a09d3cc7882cd6fd49341fdc97cfb099ed6a7bcde8a9"
@@ -25,8 +25,8 @@ export default function Login() {
   const limpar = () => {
     const nada = {
       nome_user: '',
-      tel_user: '',
-      tel_emg_user: ''
+      senha_user_comfir:'',
+
     };
     const novoEstado = {
       ...from,
@@ -59,13 +59,13 @@ export default function Login() {
     try {
       setLoading(true);
       e.preventDefault()
-      if (from.senha_user_comfir == '' || from.tel_user == '' || from.tel_emg_user == '') {
+      if (from.senha_user_comfir == '') {
         const login = {
           email: from.email_user,
           password: from.senha_user
         }
-        const reponse = await api.post("/auth/login", login)
-        localStorage.setItem("token", reponse.data.token)
+        const response = await api.post("/auth/login", login)
+        localStorage.setItem("token", response.data.token)
         location.href = "http://localhost:3000/home"
         setLoading(false)
       } else {
@@ -123,17 +123,6 @@ export default function Login() {
                       </div>
                       : null}
                   </div>
-                  <div className="mt-2">
-                    {ecadastro ?
-                      <input tabIndex={14} style={{ borderColor: cor }} onChange={getData} id="tel_user" name="tel_user" type="text" placeholder='Telefone:' autoComplete="current-password" maxLength={11} min={0} required className="mt-5 border-b-2  block w-full py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-blue-200 placeholder:text-lg focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-                      : null}
-                  </div>
-                  <div className="mt-2">
-                    {ecadastro ?
-                      <input tabIndex={15} style={{ borderColor: cor }} onChange={getData} id="tel_emg_user" name="tel_emg_user" type="text" placeholder='Numero de Emergencia:' autoComplete="current-password" maxLength={11} min={0} required className="mt-5 border-b-2  block w-full py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-blue-200 placeholder:text-lg focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-                      : null}
-                  </div>
-
                 </div>
                 <div>
                   <button onClick={submit} tabIndex={16} type="submit" className="mt-5 flex h-14 w-full justify-center rounded-md bg-indigo-600 p-4 text-4xl  font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mx-auto"> {ecadastro ? "Cadastrar-se" : "Entrar"}</button>

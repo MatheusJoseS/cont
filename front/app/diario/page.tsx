@@ -35,11 +35,11 @@ export default function SOSconfPage() {
   const salvar = async (e: any) => {
     e.preventDefault()
     const response = await api.post('/diary/createDiary', dataFrom);
-    location.href = 'http://localhost:3000/diarioD'
+    location.href = 'http://localhost:3000/diario'
   }
   const deletar = async (id:string) => {
     const response = await api.delete('/diary/deleteDiary/' + id);
-    location.href = 'http://localhost:3000/diarioD'
+    location.href = 'http://localhost:3000/diario'
   }
   useEffect(() => {
     info();
@@ -68,9 +68,9 @@ export default function SOSconfPage() {
             <h1 className="text-white text-5xl mt-5 flex m-auto">Cont;nue</h1>
             <button onClick={salvar} style={{ background: '#a273c6' }} className=" text-white float-right mr-20 flex justify-between items-center p-2 rounded-xl mt-6 w-32 text-2xl h-12 ">Salvar <img src="/imagens/salvar.png" alt="" /></button>
           </div>
-          <form className="mx-40 p-5">
+          <form className="mx-40 p-5 mt-3">
             <input className="text-4xl border-b-2 w-full h-20 rounded-lg pl-4 text-gray-500 mb-3 placeholder:text-4xl placeholder:text" placeholder="Titulo" type="text" name="title" id="title" onChange={getData} maxLength={55} /> <br />
-            <textarea className="text-4xl border-b-2 w-full rounded-lg p-5 text-gray-500 mb-3 placeholder:text-4xl placeholder:text" placeholder="Seu pensamento..." name="description" id="description" onChange={getData} rows={10} ></textarea>
+            <textarea className="text-4xl border-b-2 w-full rounded-lg p-5 text-gray-500 mb-3 placeholder:text-4xl placeholder:text" placeholder="Seu pensamento..." name="description" id="description" onChange={getData} rows={8} ></textarea>
             <input className="text-2xl border-b-2 w-full h-20 rounded-lg pl-4 text-gray-500 mb-3 placeholder:text-2xl placeholder:text" name="question1" id="question1" onChange={getData} placeholder="Quais sentimentos emergiram enquanto você anotava no diário?" />
             <input className="text-2xl border-b-2 w-full h-20 rounded-lg pl-4 text-gray-500 mb-3 placeholder:text-2xl  placeholder:text" name="question2" id="question2" onChange={getData} placeholder="Quais de minhas crenças e valores emergiram durante a anotação do diário?" />
             <input className="text-2xl border-b-2 w-full h-20 rounded-lg pl-4 text-gray-500 mb-3 placeholder:text-2xl  placeholder:text" name="question3" id="question3" onChange={getData} placeholder="Como esta pagina do diário vai direcionar as minhas ações?" />
@@ -88,7 +88,7 @@ export default function SOSconfPage() {
                 <div>
                   <div style={{ color: '#cbb3d8' }} className="mx-5 my-5 h-24 rounded-xl bg-white flex justify-between p-5 shadow-lg">
                     <div className="flex flex-col">
-                      <div className="text-4xl" onClick={() => router.push("/diarioId/" + diarios.id)}>{diarios.title}</div>
+                      <div className="text-4xl" onClick={() => router.push("/diario/" + diarios.id)}>{diarios.title}</div>
                       <div><label>Ultima Atualização:</label>{diarios.updated_at.split('T')[0].replaceAll('-', '/')}</div>
                     </div>
                     <div className="flex">
