@@ -119,7 +119,7 @@ export default function SOSconfPage() {
               return (
                 <div className="m-5 p-5">
                   <h1 className="text-white text-3xl pb-5 ml-72"> <strong>{foto.title}</strong></h1>
-                  <img src={'http://localhost:38000/images/' + foto.user_url} alt="imagen do usuario" className="m-auto rounded-3xl border-solid border-red-700 border-2" style={{ width: '50em' }} />
+                  <img src={'http://localhost:38000/images/' + foto.user_url} alt="imagen do usuario" className="m-auto rounded-3xl  shadow-2xl border-solid border-red-700 border-2" style={{ width: '50em' }} />
                   <p className="text-white text-center break-words overflow-hidden	mt-3">{foto.description}</p>
                   <button onClick={() => { deletar(foto?.id) }} className='float-right' ><img src="/imagens/lixo.png" className="w-6" alt="" /></button>
                 </div>

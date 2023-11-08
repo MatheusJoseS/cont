@@ -17,7 +17,6 @@ export default function DiarioIdPage({ params }: { params: { diarioId: string } 
   }, []);
   const info = async () => {
     const response = await api.get('/diary/findDiary/' + params.diarioId)
-    setDiario(response.data)
   }
   const getData = (e: any) => {
     const { name, value } = e.target
@@ -33,18 +32,14 @@ export default function DiarioIdPage({ params }: { params: { diarioId: string } 
   const atualizar = async (e: any) => {
     e.preventDefault()
     await api.put('/diary/updateDiary/' + params.diarioId, dataFrom);
-    location.href = 'http://localhost:3000/meudiario'
-  }
-  const deletar = async (e: any) => {
-    const response = await api.delete('/diary/deleteDiary/' + params.diarioId);
-    location.href = 'http://localhost:3000/meudiario'
+    location.href = 'http://localhost:3000/diario'
   }
   return (
     <main className="w-screen h-screen  px-48 py-10">
       <div style={{ borderRadius: '2rem', background: '#D8CADB' }} className="w-full h-full ">
         <header className="flex justify-between">
           <div className="flex justify-between">
-            <a href="/meudiario"><img src="/imagens/livro.png" alt="" className="ml-32 pt-5 w-20 h-24" /></a>
+            <a href="/diario"><img src="/imagens/livro.png" alt="" className="ml-32 pt-5 w-20 h-24" /></a>
             <h1 className="pt-11 pl-4 text-2xl text-white">Meu Diario</h1>
           </div>
           <div className="flex justify-between mt-11 text-2xl text-white">

@@ -86,7 +86,7 @@ export default function SOSconfPage() {
             {diarios.map(diarios => {
               return (
                 <div>
-                  <div style={{ color: '#cbb3d8' }} className="mx-5 my-5 h-24 rounded-xl bg-white flex justify-between p-5 shadow-lg">
+                  <div style={{ color: '#cbb3d8',border: "1px solid #ccc" }} className="mx-5 my-5 h-24 rounded-xl bg-white flex justify-between p-5 shadow-lg">
                     <div className="flex flex-col">
                       <div className="text-4xl" onClick={() => router.push("/diario/" + diarios.id)}>{diarios.title}</div>
                       <div><label>Ultima Atualização:</label>{diarios.updated_at.split('T')[0].replaceAll('-', '/')}</div>
