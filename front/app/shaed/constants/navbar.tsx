@@ -12,6 +12,13 @@ export default function Navbar() {
   const [show, setShow] = useState<Usuario | null>(null);
   const [menu, setMenu] = useState(false)
   const genericHamburgerLine = `h-2 w-12 my-1 rounded-full bg-white transition ease transform duration-300`;
+  const [perfil, setPerfil] = useState(false)
+  
+  const alterarPerfil = () => {
+    setPerfil(!perfil)
+
+    
+  }
   const InteragirMenu = () => {
     setMenu(!menu);
     console.log('tese');
@@ -77,7 +84,7 @@ export default function Navbar() {
         </button>
         {menu ?
           <div style={{ background: '#6773b5', borderRadius: '0 0 0 50px' }} className="p-3 absolute right-0 top-20 w-96 h-1/2 flex justify-center flex-col border-white border-2">
-            <button className="mx-2 mt-10 text-white text-3xl flex items-center"> <img src="/imagens/alterna.png" alt="" className="w-14 mr-4" />Alterar Conta</button>
+            <button onClick={alterarPerfil} className="mx-2 mt-10 text-white text-3xl flex items-center"> <img src="/imagens/alterna.png" alt="" className="w-14 mr-4" />Alterar Conta</button>
             <button className="mx-2 mt-10 text-white text-3xl flex items-center"> <img src="/imagens/sobre.png" alt="" className="w-14 mr-4" />Sobre</button>
             <button className="mx-2 mt-10 text-white text-left text-3xl flex items-center"> <img src="/imagens/termos.png" alt="" className="w-14 mr-4" />Termos de Política e Privacidade</button>
             <button className="mx-5 mt-10 text-white text-3xl flex items-center" onClick={deslogar}> <img src="/imagens/log-in.png" alt="" className="w-14 mr-4" />Sair</button>

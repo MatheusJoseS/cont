@@ -60,7 +60,6 @@ console.log(analise[0]);
   }
   const admVeriv = () => {
     setPag(!pag)
-    console.log(pag);
   }
   const Aprovado = async (id: string, status: boolean) => {
     status = true
